@@ -1,5 +1,5 @@
 import http from "http";
-import WebSocket from "ws";
+import SocketIO from "socket.io";
 import express from "express";
 
 const app = express();
@@ -13,8 +13,20 @@ app.get("/*", (_, res) => res.redirect("/"));
 const handleListen = () => console.log(`Listening on http://localhost:3000`);
 
 const server = http.createServer(app);
-const wss = new WebSocket.Server({ server }); //같은 서버에 http, ws 동시에 사용(same port), http는 view,redirect~ 이런거땜에 필요
+const wss= SocketIO(server);
 
+wss.on("connection",(socket)=>{
+    socket.onAny((event)=>{
+        console.log(`Socket event: ${event}`);
+    })
+    socket.on("enter_room",(roomName,done)=>{
+        //기존에 pirvate한 room이 있었음(socket.id)
+        socket.join(roomName);
+        done();
+    });
+});
+/*
+const wss = new WebSocket.Server({ server }); //같은 서버에 http, ws 동시에 사용(same port), http는 view,redirect~ 이런거땜에 필요
 const sockets=[];
 
 wss.on("connection", (socket) => { //connection이 생기면 여기 socket에 누가 연결했는지 알 수 있음
@@ -34,5 +46,5 @@ wss.on("connection", (socket) => { //connection이 생기면 여기 socket에 �
         }
     });
 });
-
+*/
 server.listen(3000, handleListen);
