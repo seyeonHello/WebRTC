@@ -10,6 +10,9 @@ Zoom Clone using WebRTC and Websockets.
 - 브라우저간의 configuration, setting, ip address, 방화벽, 라우터 등의 정보 전달을 통해 P2P 연결을 도움 
 - 미디어와 오디오 스트림은 서버를 거치지 않고, P2P통신으로 진행
 
+
+#### 👉🏻ICE : internet connectivity Establishment
+
 #### 👉🏻참고사이트
 - websocket : https://velog.io/@wldus9503/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-Network3.-WebSocket-%EC%9B%B9-%EC%86%8C%EC%BC%93%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C
 - turn : https://devji.tistory.com/entry/TURN-Traversal-Using-Relays-around-NAT
