@@ -1,4 +1,4 @@
-# Noom
+# WebRTC study
 
 Zoom Clone using WebRTC and Websockets.
 
