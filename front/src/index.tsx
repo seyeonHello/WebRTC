@@ -2,14 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import SFU_host from './SFU_host';
+import SFU_viewer from './SFU_viewer';
 import reportWebVitals from './reportWebVitals';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+				<Routes>
+					<Route path="/" element={<App />}></Route>
+					<Route path="/host/" element={<SFU_host />}></Route>
+					<Route path="/viewer/" element={<SFU_viewer />}></Route>
+				</Routes>
+			</BrowserRouter>
   </React.StrictMode>
 );
 
